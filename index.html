@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://momentjs.com/downloads/moment.js"></script>
+<script src="data/projects.js"></script>
+<script src="usercomment.js"></script>
+<title>k0vac.sh</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<link rel="icon" type="image/x-icon" href="webico.png">
+</head>
+
+<body>
+        <div id="socials">
+            <h4 onclick="closeSocials()">Interact with me here [CLOSE]</h4>
+            <div>
+                <a target="_blank" href="https://discord.com/users/431743926974808076"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32" width="32px" height="32px"><path d="M 10 6 L 10 8 L 14 8 L 14 6 L 10 6 z M 14 8 L 14 10 L 18 10 L 18 8 L 14 8 z M 18 8 L 22 8 L 22 6 L 18 6 L 18 8 z M 22 8 L 22 10 L 25 10 L 25 8 L 22 8 z M 25 10 L 25 15 L 27 15 L 27 10 L 25 10 z M 27 15 L 27 23 L 25 23 L 25 25 L 27 25 L 29 25 L 29 15 L 27 15 z M 25 25 L 19 25 L 19 27 L 25 27 L 25 25 z M 19 25 L 19 23 L 13 23 L 13 25 L 19 25 z M 13 25 L 7 25 L 7 27 L 13 27 L 13 25 z M 7 25 L 7 23 L 5 23 L 5 15 L 3 15 L 3 25 L 5 25 L 7 25 z M 5 15 L 7 15 L 7 10 L 5 10 L 5 15 z M 7 10 L 10 10 L 10 8 L 7 8 L 7 10 z M 13 23 L 13 21 L 9 21 L 9 23 L 13 23 z M 19 23 L 23 23 L 23 21 L 19 21 L 19 23 z M 11 14 L 11 18 L 14 18 L 14 14 L 11 14 z M 18 14 L 18 18 L 21 18 L 21 14 L 18 14 z"/></svg></a>
+                <a target="_blank" href="https://twitter.com/_k0vac"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32" width="32px" height="32px"><path d="M 20 5 L 20 7 L 26 7 L 26 5 L 20 5 z M 26 7 L 26 9 L 30 9 L 30 7 L 26 7 z M 20 7 L 18 7 L 18 9 L 20 9 L 20 7 z M 18 9 L 16 9 L 16 11 L 18 11 L 18 9 z M 16 11 L 9 11 L 9 13 L 16 13 L 16 11 z M 0 10 L 0 14 L 2 14 L 2 18 L 5 18 L 5 22 L 10 22 L 10 20 L 7 20 L 7 18 L 9 18 L 9 16 L 4 16 L 4 14 L 6 14 L 6 12 L 2 12 L 2 10 L 0 10 z M 10 22 L 10 24 L 12 24 L 12 22 L 10 22 z M 10 24 L 5 24 L 5 26 L 10 26 L 10 24 z M 10 26 L 10 28 L 18 28 L 18 26 L 10 26 z M 18 26 L 22 26 L 22 24 L 18 24 L 18 26 z M 22 24 L 24 24 L 24 19 L 22 19 L 22 24 z M 24 19 L 26 19 L 26 15 L 24 15 L 24 19 z M 26 15 L 28 15 L 28 11 L 26 11 L 26 15 z"/></svg>            </a>
+                <a target="_blank" href="https://steamcommunity.com/id/k0vacUI/"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32" width="32px" height="32px"><path d="M 6 4 L 6 6 L 26 6 L 26 4 L 6 4 z M 26 6 L 26 26 L 28 26 L 28 6 L 26 6 z M 26 26 L 6 26 L 6 28 L 26 28 L 26 26 z M 6 26 L 6 20 L 8 20 L 8 22 L 10 22 L 10 24 L 12 24 L 12 22 L 15 22 L 15 20 L 18 20 L 18 18 L 22 18 L 22 16 L 16 16 L 16 10 L 14 10 L 14 14 L 12 14 L 12 16 L 10 16 L 10 18 L 8 18 L 8 16 L 6 16 L 6 6 L 4 6 L 4 16 L 4 18 L 4 26 L 6 26 z M 16 10 L 22 10 L 22 8 L 16 8 L 16 10 z M 22 10 L 22 16 L 24 16 L 24 10 L 22 10 z M 18 12 L 18 14 L 20 14 L 20 12 L 18 12 z"/></svg>            </a>
+            </div>
+            <p>discord: k0vac</p>
+        </div>
+        
+        <div id="backdrop">
+            <h4>Accessing k0vac.sh
+            <div id="startButton" class="btn" onclick="reveal(); flip('tile')">PLAY</div>
+            <p id="mobileWarning">WARNING:<br>Experience is not optimized for mobile viewing!</p>
+            </h4>
+        </div>
+        
+        <div id="debug">
+            <h4>DEBUG</h4>
+        </div>
+
+        <div id="clipboard" class="invis">
+            <a><p>COPIED TO CLIPBOARD</p></a>
+        </div>
+
+        <div id="successToast" class="invis">
+            <a><p>SUCCESS</p></a>
+        </div>
+
+        <div id="container">
+            <div class="row">
+                GET /index.html HTTP/2.0 HOST: k0vac.sh
+            </div>
+            <div id="header" class="row">
+                <img src="smoke.gif"></img>
+                <pre id="welcome" style="transition-duration:1s; display:block;">
+                    //     __   _______                       
+                    //    |  | _\   _  \___  _______    ____  
+                    //    |  |/ /  /_\  \  \/ /\__  \ _/ ___\ 
+                    //    |    &lt;\  \_/   \   /  / __ \\  \___ 
+                    //    |__|_ \\_____  /\_/  (____  /\___  &gt;
+                    //         \/      \/           \/     \/ 
+                </pre>
+            </div>
+
+            <div class="row ballsrow" onclick="flip('misc1');">
+                <a id="balls" onmousedown="clipboardTask(this.innerText)">IkFzIGhhcHBpbmVzcyBnb2VzIHRocm91Z2ggdGhlIGRvb3IsIGdyaWVmIGF3YWl0cyBvbiBpdHMgZG9vcnN0ZXAuIg</a>
+            </div>
+
+            <div class="row">
+                <div>
+                <h3>Добродошли.</h3>
+                <p id="infop">This is a little crib of mine to sort of paint a picture of what goes on inside my head, 
+                I suppose. Enjoy my little ramblings and information. 
+                I like having a dark corner where I can let my brain run wild.</p>
+                </div>
+   
+                
+            </div> 
+
+            <div class="splitview">
+                <div class="columnA">
+                    <div class="row tabsRow">
+                        <div>
+                            <a id="tabnews" class="curTab" onclick="changeTab('news')">NEWS</a>
+                            <a id="tababoutme" onclick="changeTab('aboutme')">ABOUT ME</a>
+                            <a id="tabprojects"  onclick="changeTab('projects')">PROJECTS</a>
+                            <a id="tabguestbook" onclick="changeTab('guestbook')">GUESTBOOK</a>
+                            <a id="tabbadges" onclick="changeTab('badges')">BADGES</a>
+                            <a id="tabblog" onclick="changeTab('blog')">BLOG</a>
+                        </div>
+                    </div>
+
+                    <div class="row fixed-height-scroll">
+                        <div id="newsTile">
+                            <div id="mainNews">
+                                <h4>Website Launch!</h4>
+                                <p>Pretty happy with how smooth the website launch went! 
+                                <br>Can't wait to do more!<br><br>
+                                To be honest there still is a lot to do here but I couldn't be arsed to finish every single detail.
+                                <br><br>
+
+                                </p>
+                                <div>3.2.2026</div>
+                            </div>
+                        </div>
+                        <div id="aboutmeTile">
+                            <h3>DOSSIER<p class="invertP">VELJKO KOVACEVIC [23 YEARS OLD] [SERBIA/EUROPE] [HE/HIM]
+                            </p></h3>
+                            <h5>Personality Type: INFJ-T</h5>- I do not believe in these things but to each their own.
+                            <p>
+                            Software developer/architect at my day job.
+                            <br><br>
+                            You'll mostly find that I enjoy <span style="color:lime">Vue.js</span> and <span style="color:yellow">Python (Flask/Django)</span> as my bread and butter to get stuff done.
+                            </p> 
+                            <hr>
+
+                            <div class="minidoublecolumn">
+                                <div class="minicolumn">
+                                    <h4>Hobbies</h4>
+                                    <h5>GAME DEVELOPMENT</h5>
+                                    <p>Several games made for game jams, upcoming <i>secret</i> project as well :)
+                                    <br>Unity Engine is my go-to, C# and MonoBehaviour are my friends.
+                                    </p>
+
+                                    <h5>ELECTRONICS</h5>
+                                    <p>I like fiddling with circuits with microcontrollers. ESP32s rock.</p>
+                                </div>
+                                <div class="minicolumn">
+                                    <h4>Games</h4>
+                                    <h5>Favourites: </h5>
+                                    <p>Serious Sam, F.E.A.R, Quake 4, Killing Floor</p>
+                                    <h5>w/ Friends only:</h5> 
+                                    <p>Minecraft, CS2, League of Legends, Escape from Tarkov, TF2
+                                    <br><br>
+                                    I don't really play games as much as I used to, growing up is fun <br>(it isn't).
+                                    </p>
+                                </div>
+                            </div>
+
+                            <hr>
+                            <h4>My opinions & Facts about me</h4>
+                            <div class="ribbons">
+                                <p>Coca Cola Addict</p>
+                                <p>Cat Person</p>
+                                <p>I love my sleep</p>
+                                <p>I dig holes irl good</p>
+                                <p>Linux User (Ubuntu ftw), stuck on Windows on main rig for work</p>
+                                <p>Gyros &lt;3</p>
+                                <p>Create Mod in Minecraft is awesome</p>
+                                <p>Self-help books and videos are delulu</p>
+                                <p>Arm fracture speeding on bicycle at 13</p>
+                                <p>Vodka/Jack Daniels > Beer</p>
+                                <p>I love my gf</p>
+                                <p>I also love my gf</p>
+                                
+                                <p>Been to Greece, Bosnia, Montenegro, North Macedonia and UK</p>
+                                <p>I refuse to fly in Boeing airplanes</p>
+                            </div>
+                            <hr>
+                            <h4>Current Rigs</h4>
+                            <div class="row">
+                                
+                                <div class="pcBox">
+                                    <h4>Main PC</h4>
+                                    <p>AMD Ryzen 7 5700X3D</p>
+                                    <p>32GB DDR4 3200MHz</p>
+                                    <p>Gigabyte GeForce RTX 3080 10GB</p>
+                                    <div>
+                                        Is my daily driver for all my shenanigans.
+                                    </div>
+                                </div>
+                                <div class="pcBox">
+                                    <h4>Server "Blue"</h4>
+                                    <p>Intel Xeon E3-1230v2</p>
+                                    <p>16GB DDR3 1600MHz</p>
+                                    <p>ASUS Windforce OC GTX 1060 3GB</p>
+                                    <div>
+                                        Runs my minecraft servers and FTP stuff.
+                                    </div>
+                                </div>
+                                <div class="pcBox">
+                                    <h4>Server "Red"</h4>
+                                    <p>AMD Ryzen 5 3600</p>
+                                    <p>No RAM T_T</p>
+                                    <p>Inno3D GTX 1060 3GB</p>
+                                    <div>
+                                        In-Progress Build for beefier demanding tasks. Darn RAM prices.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p>I've been cooking this website for about 2 years. I'm a chronic procrastinator in that regard but honestly,
+                            the large pauses and fresh perspectives every time I come back every few months on it made it look better and nicer.
+
+                            </p>
+                            <p>Also the fact this is basically coded with majorly raw HTML/CSS/JS + a tiny speck of jQuery. 
+                            I like doing things the hard way.
+                            </p>
+                            <br><br>
+                        </div>
+                        <div id="projectsTile">
+                            <h3>PROJECTS</h3>
+                            <div class="projectDIV"></div>
+                        </div>
+                        <div id="badgesTile">
+                            <h3>BADGES</h3>
+                            <p>Here you will generally find badges/hotlinks to friends and places I find cool!</p>
+
+                            <h3>Friends</h3>
+                            
+                            <a href="https://hoshimiuwu.github.io"><img src="https://hoshimiuwu.github.io/HideawayHotlink.gif"></img></a>
+                            <a href="https://hrtowii.nekoweb.org"><img src="badges/friends/htrowii.png"/></a>
+                            <a href="https://jesx.dev"><img src="badges/friends/jesx.gif"/></a>
+
+                            <h3>Cool sites</h3>
+                            <a href="https://dimden.dev/"><img src="https://dimden.dev/images/88x31.gif"></a>
+                            <a href="https://melankorin.net/"><img src="https://melankorin.net/assets/img/buttons/button-1.gif" alt=""></a>
+
+                        </div>
+                        <div id="guestbookTile">
+                            <p>Here you can leave a comment or a message for me! Coming soon.</p>
+                            <h5 class="errorh5">Problem establishing connection with GuestBook Coordinator. <br>Messages might not go through.</h5>
+                            <div id="guestbookForm">
+                                <h4 id="guestbookNameHeader">Name</h4>
+                                <input id="guestbookName" maxlength="32" type="text" placeholder="Name (optional)"/>
+                                <h4 id="guestbookMessageHeader">Message (300)</h4>
+                                <textarea id="guestbookMessage" maxlength="300" placeholder="Your message..."></textarea>
+                                <button class="btn" 
+                                onclick="flip('positive');
+                                sendGuestbookEntry();">SUBMIT</button>
+                                
+                            </div>
+                            
+
+                            <hr>
+
+                            <h3>COMMENTS</h3>
+                            <div class="commentControls">
+                                <button class="btn" onclick="flip('misc2'); refreshComments();">REFRESH COMMENTS</button>
+                                <button class="btn" onclick="flip('tile'); refreshComments(-1);">Prev</button>
+                                <p id="pageCounter">Page 1 of 1</p>
+                                <button class="btn" onclick="flip('tile'); refreshComments(1);">Next</button>
+                            </div>
+                            <div id="comments">
+                            </div>
+                        </div>
+                        <div id="blogTile">
+                            <p>Coming soon!</p>
+                        </div>
+                    </div>
+
+                    <div class="row fullwidth"><div class="bracket"></div></div>
+                </div>
+                <div class="columnB column infoColumn">
+                        <h4>Last Updated:</h4>
+                        <p>31st Jan 2026</p>
+
+                        <h4>Active users</h4>
+                        <p id="activeUsers">Coming soon</p>
+
+                        <h4>View count</h4>
+                        <p id="viewCount">-</p>
+
+                        <h4>My Hotlink</h4>
+                        <img src="badges/k0vac.gif" />
+                        <code onclick="clipboardTask(this.innerHTML)">&lt;a href="https://k0vac.sh"&gt;&lt;img src="https://k0vac.sh/badges/k0vac.gif" /&gt;&lt;/a&gt;</code>
+                    <div class="row fullwidth"><div class="bracket"></div></div>
+                        <h4 style="margin-top: 10px;">Goals</h4>
+                        <h5 id="goalsConnecting">Connecting...</h5>
+                        <div id="goalsDiv">
+                        </div>
+                    <div class="row fullwidth"><div class="bracket"></div></div>
+                    <div class="badges">
+                        <img src="badges/amd_powered.gif"/>
+                        <img src="badges/ubuntu-88x31.gif"/>
+                        <img src="badges/coke.gif"/>
+                        <img src="badges/best_chrome.gif" />
+                    </div>
+                    
+                </div>
+
+                <div>
+                    
+                </div>
+        </div>
+    </body>
+
+
+    <script>
+        document.body.style = 'overflow-x:hidden;'
+        apiUrl = 'https://primus.k0vac.sh'
+
+        async function fetchGuestbookEntries() {
+            try {
+                let response = await fetch(`${apiUrl}/guestbook?page=${pageCount}`, { method: 'GET' });
+                let data = await response.json();
+                pageCounter.innerText = `Page ${pageCount} of ${data.max_pages}`;
+                return {
+                    maxPages: data.max_pages,
+                    commentsList: data.entries
+                }
+            } catch (error) {
+                console.error('Error fetching guestbook entries:', error);
+            }
+        }
+
+        fetchGoals()
+        async function fetchGoals() {
+            try {
+                let response = await fetch(`${apiUrl}/goals`, { method: 'GET' });
+                let data = await response.json();
+                for (child of data) {
+                    el = document.createElement('div')
+                    el.className = 'goalInstance'
+                    el.innerHTML = `
+                        <p>${child.name}</p>
+                        <progress class="progressBar" value="${child.current_value}" max="${child.max_value}"></progress>
+                        <p class='invertP2'>${child.current_value}/${child.max_value}</p>
+                    `
+                    goalsDiv.appendChild(el)
+                    goalsConnecting.remove()
+                }
+
+            } catch (error) {
+                console.error('Error fetching goals:', error)
+            }
+        }
+
+        const serverData = ServerHeartbeat();
+        let pageCount = 1;
+        let maxPageCount;
+        fetchGuestbookEntries().then(({ maxPages, commentsList }) => {
+            maxPageCount = maxPages;
+            for(let entry of commentsList) {
+            comments.appendChild(createCommentElement(entry));
+            }
+        });
+
+        async function ServerHeartbeat() {
+            try {
+                let response = await fetch(`${apiUrl}/heartbeat`, { method: 'GET' });
+                let data = await response.json();
+                $('#viewCount')[0].innerText = data.view_count;
+                if(data.status.guestbook == true) {
+                    $('#guestbookTile .errorh5').hide();
+                } else {
+                    $('#guestbookTile .errorh5').show();
+                }
+            } catch (error) {
+                console.error('Error fetching heartbeat data:', error);
+            }
+        }
+
+        async function guestbookSubmit() {
+            try {
+                let response = await fetch(`${apiUrl}/guestbook`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: $('#guestbookName')[0].value,
+                        message: $('#guestbookMessage')[0].value
+                    })
+                });
+                let data = await response.json();
+                console.log('Guestbook submission response:', data);
+                if (response.ok) {
+                    comments.insertBefore(createCommentElement(data), comments.firstChild);
+                }
+            } catch (error) {
+                console.error('Error submitting guestbook entry:', error);
+            }
+        }
+
+        function createCommentElement(entry) {
+            console.log(entry)
+            let commentElement = document.createElement('user-comment');
+            commentElement.className = 'comment fadeIn';
+            commentElement.setAttribute('author', entry.name);
+            commentElement.setAttribute('number', `#${entry.id.toString().padStart(3, '0')}`);
+            commentElement.setAttribute('text', entry.message);
+            commentElement.setAttribute('date', entry.date);
+            return commentElement;
+        }
+
+        async function refreshComments(pageStep, absolutePage){
+            if(absolutePage){
+                pageCount = 0
+                refreshComments()
+                return;
+            }
+
+            if((pageStep > 0 && pageCount == maxPageCount) || (pageStep < 0 && pageCount === 1)) return;
+
+            if(pageStep) pageCount += pageStep;
+            
+            let newEntries = await fetchGuestbookEntries();
+            maxPageCount = newEntries.maxPages;
+            comments.innerHTML = '';
+            for (entry of newEntries.commentsList) comments.appendChild(createCommentElement(entry))
+            
+
+        }
+        function sendGuestbookEntry() {
+            guestbookSubmit();
+            let name = $('#guestbookTile input')[0].value
+            let message = $('#guestbookTile textarea')[0].value
+            refreshComments(0, 1);
+            $('#guestbookTile input')[0].value = ''
+            $('#guestbookTile textarea')[0].value = ''
+            $('#successToast').removeClass('invis')
+            
+        }
+        
+        async function reveal() {
+            backdrop.addEventListener('animationend', () => {backdrop.remove()})
+            $('#backdrop').addClass('fadeOut')
+            startButton.remove()
+            soundLibrary['brown'].volume(0.005)
+            soundLibrary['brown'].play()
+
+            $('a').addClass('blipper')
+            $('a').on('click', function() {
+                $(this).removeClass('blipper')
+                $(this)[0].offsetHeight
+                $(this).addClass('blipper')
+            })
+
+            setTimeout(() => {
+            $('#socials')[0].style = 'opacity: 1'
+            $('#socials').addClass('fadeIn')
+            soundLibrary['activation'].play()
+            }, 2000)
+        }
+
+        function clipboardTask(obj) {
+            $('#clipboard').removeClass('invis')
+            navigator.clipboard.writeText(obj)
+        }
+
+        clipboard.addEventListener('animationend', () => {
+            console.log("triggered")
+            $('#clipboard').addClass('invis')
+        })
+        
+        successToast.addEventListener('animationend', function() {
+                $('#successToast').addClass('invis')
+        })
+
+        guestbookMessage.addEventListener('keydown', function(event) {
+                flip('type');
+                if(event.key === "Enter" && !event.shiftKey) {
+                    event.preventDefault();
+                    sendGuestbookEntry();
+                    flip('positive');
+                }
+
+                let currentLength = guestbookMessage.value.length;
+                guestbookMessageHeader.innerText = `Message (${300 - currentLength})`;
+        });
+
+        guestbookMessage.addEventListener('keyup', function(event) {
+                let currentLength = guestbookMessage.value.length;
+                guestbookMessageHeader.innerText = `Message (${300 - currentLength})`;
+        });
+
+        guestbookName.addEventListener('keydown', function(event) {
+                flip('type');
+        });
+
+        var soundLibrary = {
+            'misc1': createSound('misc1.wav'),
+            'misc2': createSound('misc2.wav'),
+            'tile': createSound('tile.wav'),
+            'toggleOn': createSound('toggleOn.wav'),
+            'brown': createSound('brown.ogg', { loop: true, preload: true, html5: true}),
+            'highlight': createSound('highlight.wav'),
+            'bumper1': createSound('bumper1.wav'),
+            'bumper2': createSound('bumper2.wav'),
+            'activation': createSound('activation.wav'),
+            'negative': createSound('negative.wav'),
+            'positive': createSound('positive.wav'),
+            'toast': createSound('toast.wav'),
+            'type': createSound('type.wav')
+        }
+
+        Object.keys(soundLibrary).map((key) => {
+            debug.appendChild(elementor(key))
+        })
+
+        function elementor(soundID){
+            let element = document.createElement("p")
+            element.addEventListener('click', () => {flip(soundID)})
+            element.innerHTML = soundID
+            return element
+        }
+        
+        async function flip(name){
+            soundLibrary[name].play();
+        }
+
+        function createSound(file, extras){
+            let howlBase = {
+                src:['aud/'+file]
+            }
+            
+            return new Howl(Object.assign({}, howlBase, extras))
+        }
+
+        let closed = false
+        function closeSocials() {
+            if(!closed){
+                soundLibrary['type'].play()
+                $('#socials h4')[0].innerText = 'Interact [OPEN]'
+                $('#socials h4').addClass('closed')
+                $('#socials div')[0].style.display = 'none'
+                $('#socials p')[0].style.display = 'none'
+                closed = true
+            } else {
+                soundLibrary['type'].play()
+                $('#socials h4')[0].innerText = 'Interact with me here [CLOSE]'
+                $('#socials div')[0].style.display = 'initial'
+                $('#socials p')[0].style.display = 'block'
+                $('#socials h4').removeClass('closed')
+                closed = false
+            }
+        }
+
+        
+        debug.remove()
+
+        $('.projectDIV')[0].appendChild(projectElement(0))
+        $('.projectDIV')[0].appendChild(projectElement(1))
+        $('.projectDIV')[0].appendChild(projectElement(2))
+
+        let currentTab = 'news'
+
+        let tabDivIndex = {
+            news: $('#newsTile'),
+            projects: $('#projectsTile'),
+            blog: $('#blogTile'),
+            badges: $('#badgesTile'),
+            guestbook: $('#guestbookTile'),
+            aboutme: $('#aboutmeTile')
+        }
+
+        $('#blogTile').hide()
+        $('#badgesTile').hide()
+        $('#guestbookTile').hide()
+        $('#aboutmeTile').hide()
+        $('#projectsTile').hide()
+        
+        function changeTab(name) {
+            if(currentTab == name) {
+                return;
+            } else {
+                flip('toast')
+                $('#tab'+name)[0].classList.add("curTab")
+                $('#tab'+currentTab)[0].classList.remove("curTab")
+                tabDivIndex[currentTab].hide()
+                currentTab = name
+                tabDivIndex[currentTab].show()
+            }
+        }
+    </script>
+
+</html>
