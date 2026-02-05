@@ -708,14 +708,64 @@
         display:none;
     }
 
+    #welcome {
+        display: block;
+    }
+
     @media screen and (max-width: 1000px) {
         #socials {
            width: 90%;
            bottom: 5%;
            top: auto;
            left: 5%;
+        }
 
-           
+        #header {
+            display: flex;
+            justify-content: center;
+        }
+
+        .minidoublecolumn {
+            flex-direction:column;
+        }
+
+        .fixed-height-scroll {
+            width: 90dvw;
+        }
+        .minicolumn {
+            width: 90dvw;
+        }
+
+        .minicolumn:nth-child(1) {
+        border: 0px;
+        }
+
+        #guestbookForm {
+            width: 90%;
+            justify-content: center;
+        }
+
+        #guestbookName, #guestbookMessage{
+            width: 100%;
+        }
+
+        .errorh5 {
+            width: 90%;
+        }
+        #aboutmeTile {
+            width: 100%;
+
+            h3 > p {
+                word-break:break-all;
+                max-width: 100%;
+            }
+        }
+        #welcome {
+            display:none;
+        }
+
+        #welcome img {
+
         }
 
         #mobileWarning {
@@ -733,6 +783,7 @@
         }
 
         .columnA, .columnB {
+            max-width: 95%;
             width: 100%;
             margin: 0;
             border: none;
